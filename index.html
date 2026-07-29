@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Небольшое CRM-приложение для добавления и хранения лидов"
+    >
+    <title>Добавление лидов — мини-CRM</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Мини-CRM</p>
+        <h1>Управление лидами</h1>
+        <p class="page-description">
+          Добавляйте обращения и обновляйте этап сделки без перезагрузки страницы.
+        </p>
+      </div>
+    </header>
+
+    <main class="container app-layout">
+      <section class="panel form-panel" aria-labelledby="form-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Новый контакт</p>
+            <h2 id="form-title">Добавление лида</h2>
+          </div>
+          <span class="required-note"><span aria-hidden="true">*</span> Обязательные поля</span>
+        </div>
+
+        <form id="leadForm" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="clientName">Имя клиента <span aria-hidden="true">*</span></label>
+              <input
+                id="clientName"
+                name="clientName"
+                type="text"
+                autocomplete="name"
+                aria-describedby="clientNameError"
+                required
+              >
+              <span class="field-error" id="clientNameError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="clientPhone">Номер телефона <span aria-hidden="true">*</span></label>
+              <input
+                id="clientPhone"
+                name="clientPhone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                aria-describedby="clientPhoneError"
+                required
+              >
+              <span class="field-error" id="clientPhoneError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="leadSource">Источник лида</label>
+              <select id="leadSource" name="leadSource">
+                <option value="Холодный">Холодный</option>
+                <option value="Тёплый">Тёплый</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="responsible">Ответственный</label>
+              <select id="responsible" name="responsible">
+                <option value="Лидоруб">Лидоруб</option>
+                <option value="МОП">МОП</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--wide">
+              <label for="dealStage">Этап сделки</label>
+              <select id="dealStage" name="dealStage">
+                <option value="Новый лид">Новый лид</option>
+                <option value="Квалифицирован">Квалифицирован</option>
+                <option value="Назначена консультация">Назначена консультация</option>
+                <option value="Отказ">Отказ</option>
+              </select>
+            </div>
+          </div>
+
+          <label class="checkbox-field" for="specificationRequested">
+            <input
+              id="specificationRequested"
+              name="specificationRequested"
+              type="checkbox"
+            >
+            <span class="checkbox-control" aria-hidden="true"></span>
+            <span>
+              <strong>Запрошено ТЗ</strong>
+              <small>Клиенту необходимо подготовить техническое задание</small>
+            </span>
+          </label>
+
+          <button class="save-button" type="submit">Сохранить лид</button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="leads-section" aria-labelledby="leads-title">
+        <div class="leads-heading">
+          <div>
+            <p class="section-kicker">База контактов</p>
+            <h2 id="leads-title">Сохранённые лиды</h2>
+          </div>
+          <span class="leads-count" id="leadsCount">0 лидов</span>
+        </div>
+
+        <p class="empty-state" id="emptyState">
+          Пока нет сохранённых лидов. Заполните форму, и первый контакт появится здесь.
+        </p>
+        <div class="leads-list" id="leadsList"></div>
+      </section>
+    </main>
+  </body>
+</html>
