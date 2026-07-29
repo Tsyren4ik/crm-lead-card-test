@@ -41,9 +41,15 @@ http://localhost:8000
 
 ## Ссылки
 
-**Live Demo:** будет добавлена после публикации на Vercel.
+**Live Demo:** https://crm-lead-card-test.vercel.app
 
-**GitHub Repository:** будет добавлена после создания публичного репозитория.
+**GitHub Repository:** https://github.com/Tsyren4ik/crm-lead-card-test
+
+## Развёртывание
+
+- исходный код хранится на GitHub;
+- production-версия опубликована на Vercel;
+- изменения из основной ветки `main` автоматически публикуются после `push` через Git-интеграцию Vercel.
 
 ## Структура проекта
 
